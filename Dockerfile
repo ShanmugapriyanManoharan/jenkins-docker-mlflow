@@ -6,7 +6,7 @@ RUN pip install mlflow
 # /home/jovyan → Default working directory in jupyter/scipy-notebook
 # jovyan → user (default non-root user)
 
-# Sets the current user as root to priveleged operations (apt-get install)
+# Sets the current user as root to priveleged operations (Example: apt-get install)
 USER root
 RUN apt-get update && apt-get install -y jq
 # jq → a lightweight command-line JSON processor
