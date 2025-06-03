@@ -5,7 +5,7 @@ pipeline {
         stage('Getting Project from Git') {
             steps {
                 echo 'Project is downloading...'
-                git branch: 'master', url: 'https://github.com/03sarath/jenkins-mlflow-docker.git'
+                git branch: 'master', url: 'https://github.com/ShanmugapriyanManoharan/jenkins-docker-mlflow.git'
             }
         }
         stage('Building Docker Container') {
