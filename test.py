@@ -3,7 +3,7 @@ import pandas as pd
 from mlflow.tracking import MlflowClient
 
 def get_highest_model_version(model_name: str):
-    mlflow.set_tracking_uri(uri="http://localhost:8070")
+    # mlflow.set_tracking_uri(uri="http://localhost:8070")
     client = MlflowClient()
     
     try:
@@ -28,7 +28,6 @@ def get_highest_model_version(model_name: str):
         return None
 
 def model_prediction(model_name, version):
-    mlflow.set_tracking_uri(uri="http://host.docker.internal:8070")
     # Load your saved model from MLflow
     model_uri = f"models:/{model_name}/{version}"  # Replace <registered_model_name> with your model name
     model = mlflow.pyfunc.load_model(model_uri)
@@ -61,6 +60,7 @@ def model_prediction(model_name, version):
 
 if __name__ == "__main__":
     model_name = "heart_disease"
+    mlflow.set_tracking_uri(uri="http://host.docker.internal:8070")
     
     version = get_highest_model_version(model_name)
     print(f"Model Name: {model_name} --> Version: {version}")
